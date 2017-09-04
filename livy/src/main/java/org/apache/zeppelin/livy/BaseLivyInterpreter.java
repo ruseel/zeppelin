@@ -284,7 +284,7 @@ public abstract class BaseLivyInterpreter extends Interpreter {
         // to check session status again in this sync block
         synchronized (this) {
           if (isSessionExpired()) {
-            createSession();
+            this.open();
           }
         }
         stmtInfo = executeStatement(new ExecuteRequest(code));
